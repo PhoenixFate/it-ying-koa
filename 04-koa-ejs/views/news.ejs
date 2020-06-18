@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%-include("public/header.ejs")%>
+    <h3>ejs中循环数据</h3>
+    <ul>
+        <%for(let i=0;i<list.length;i++){%>
+            <li><%=list[i]%></li>
+        <%}%>
+    </ul>
+    <h4>&lt;%=按照文本输出内容</h4>
+    <%=content%>
+    <h4>&lt;%-按照html格式输出内容</h4>
+    <%-content%> 
+
+    <h3>条件判断</h3>
+    <%if(number>24){%>
+        <h3>number&gt;24</h3>
+    <%}else{%>
+        <h3>number&lt;=24</h3>
+    <%}%>
+
+    <h4><%=username%></h4>
+</body>
+</html>
