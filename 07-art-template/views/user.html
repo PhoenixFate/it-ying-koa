@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h3>user.art</h3>
+    <h3>绑定数据</h3>
+    <h5><%=data.name%></h5>
+    <h5><%=1+1%></h5>
+    <h5><%=data.content%></h5>
+    <%-data.content%>
+    <%if(number>20){%>
+        <h5>number>20</h5>
+    <%}else{%>
+        <h5>number&lt;=20</h5>
+    <%}%>
+    <ul>
+        <%for(let i=0;i<data.list.length;i++){%>
+            <li><%=data.list[i]%></li>
+            <%}%>
+    </ul>
+</body>
+</html>

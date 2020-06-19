@@ -46,3 +46,20 @@ app.use(views('views',{map:{html:'ejs'}}))
     const static=require('koa-static')
     app.use(static('static'))
 ```
+
+## koa中渲染速度最快的模版引擎 art-template
+1. 安装
+- npm install art-template --save
+- npm install koa-art-template --save
+2. 使用
+```
+    const render=require('koa-art-template')
+    render(app,{
+        root:path.join(__dirname,'view'),
+        extname:'.art',
+        debug:process.env.NODE_ENV!=='production'
+    })
+    app.get('/',async (ctx)=>{
+        await ctx.render('user')
+    })
+```
