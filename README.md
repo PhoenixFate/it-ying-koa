@@ -37,3 +37,12 @@ app.use(views('views',{map:{html:'ejs'}}))
     var bodyParser=require('koa-bodyparser')
     app.usr(bodyParser())
 ```
+
+## koa中使用静态资源中间件
+1. 安装
+- npm install --save koa-static
+2. 配置静态资源中间件
+```
+    const static=require('koa-static')
+    app.use(static('static'))
+```
