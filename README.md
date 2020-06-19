@@ -84,3 +84,8 @@ app.use(views('views',{map:{html:'ejs'}}))
     };
     app.use(session(CONFIG, app));
 ```
+
+
+## mongodb
+1. 
+- npm install mongodb --save
