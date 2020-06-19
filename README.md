@@ -63,3 +63,24 @@ app.use(views('views',{map:{html:'ejs'}}))
         await ctx.render('user')
     })
 ```
+
+## koa-session
+1. 安装
+- npm install koa-session --save
+2. 配置中间件
+``` 
+    const session = require('koa-session')
+    //session的签名
+    app.keys = ['some secret hurr'];
+    //配置session中间件
+    const CONFIG = {
+        key: 'koa:sess',
+        maxAge: 86400000,
+        overwrite: true,
+        httpOnly: true,
+        signed: true,
+        rolling: false,
+        renew: false,
+    };
+    app.use(session(CONFIG, app));
+```

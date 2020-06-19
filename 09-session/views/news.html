@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        console.log(document.cookie)
+    </script>
+</head>
+<body>
+    <h4>{{data.name}}</h4>
+    <h4>{{data.content}}</h4>
+    <h4>绑定html数据</h4>
+    <h4>{{@ data.content}}</h4>
+    {{if number>20}}
+    <h4>number>20</h4>
+    {{else}}
+    <h4>number&lt;=20</h4>
+    {{/if}}
+    <h4>循环遍历</h4>
+    {{each data.list}}
+    <h4>{{$index}}{{$value}}</h4>
+    {{/each}}
+
+    {{include 'public/footer.html'}}
+</body>
+</html>
