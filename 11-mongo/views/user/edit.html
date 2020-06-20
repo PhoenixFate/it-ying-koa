@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>编辑用户</h2>
+    <form action="doEditUser" method="POST">
+        <input type="hidden" name="_id" value="{{@user._id}}">
+        姓名: <input type="text" name="username" value="{{user.username}}"><br>
+        年龄: <input type="text" name="age" value="{{user.age}}"><br>
+        性别: <input type="text" name="sex" value="{{user.sex}}"><br>
+        status: <input type="text" name="status" value="{{user.status}}"><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>

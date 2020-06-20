@@ -1,6 +1,7 @@
 //mongodb
-
-var MongoClient=require('mongodb').MongoClient;
+var MongoDB=require("mongodb")
+var MongoClient=MongoDB.MongoClient;
+const ObjectID=MongoDB.ObjectID;
 var Config=require("./config.js")
 
 class MyMongodb{
@@ -51,6 +52,57 @@ class MyMongodb{
             })
         })
     }
+
+    getObjectId(id){
+        return new ObjectID(id);
+    }
+
+
+    insert(collectionName,json){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).insertOne(json,function(err,result){
+                    if(err){
+                        reject(err)
+                    }else {
+                        resolve(result)
+                    }
+                })
+            })
+        })
+    }
+
+    update(collectionName,query,json2){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                //db.user.update({},{$set:{}})
+                db.collection(collectionName).updateOne(query,{
+                    $set:json2
+                },(err,result)=>{
+                    if(err){
+                        reject(err)
+                    }else {
+                        resolve(result)
+                    }
+                })
+            })
+        })
+    }
+
+    remove(collectionName,query){
+        return new Promise((resolve,reject)=>{
+            this.connect().then((db)=>{
+                db.collection(collectionName).removeOne(query,(err,result)=>{
+                    if(err){
+                        reject(err)
+                    }else {
+                        resolve(result)
+                    }
+                })
+            })
+        })
+    }
+
 }
 
 
