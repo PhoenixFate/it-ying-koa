@@ -87,7 +87,7 @@ app.use(views('views',{map:{html:'ejs'}}))
 
 
 ## mongodb
-1. 
+1. 安装
 - npm install mongodb --save
 
 
