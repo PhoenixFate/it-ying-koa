@@ -89,3 +89,18 @@ app.use(views('views',{map:{html:'ejs'}}))
 ## mongodb
 1. 
 - npm install mongodb --save
+
+
+## koa 应用生成器
+1. 安装
+- npm install koa-generator -g
+
+2. 创建项目
+- koa koa_demo
+
+3. 安装依赖
+- cd koa_demo
+- npm install
+
+4. 启动项目
+-  npm start
