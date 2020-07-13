@@ -1,7 +1,6 @@
 //引入 koa模块
-var Koa = require("koa")
-
-var Router = require("@koa/router")
+const Koa = require("koa")
+const Router = require("@koa/router")
 
 //实例化
 var app = new Koa()
@@ -19,7 +18,7 @@ router.get("/", async (ctx) => {
 
 // 启动路由
 app.use(router.routes())  //启动路由
-.use(router.allowedMethods()) 
+app.use(router.allowedMethods()) 
 
 /*
 router.allowedMethods()

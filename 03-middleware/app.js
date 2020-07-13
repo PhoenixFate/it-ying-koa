@@ -2,6 +2,12 @@ var Koa=require("koa")
 var app=new Koa()
 var router=require("@koa/router")()
 
+
+router.get("/",async (ctx)=>{
+    ctx.body="index page"
+})
+
+
 //koa中间件
 //应用级中间件
 //匹配任何路由
@@ -16,9 +22,6 @@ app.use(async (ctx,next)=>{
 
 
 
-router.get("/",async (ctx)=>{
-    ctx.body="index page"
-})
 
 //路由级中间件
 //匹配到路由之后继续向下匹配路由

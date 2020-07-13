@@ -1,5 +1,3 @@
-
-
 //引入koa模块
 var Koa = require("koa")
 //引入和实例化router
@@ -31,7 +29,7 @@ router.get("/newsDetail", async (ctx) => {
     console.log(ctx.query) //{ aid: '20' }
     console.log(ctx.querystring) //aid=20
 
-    //通过request接受get参数
+    //通过request接受get参数 (不推荐)
     console.log(ctx.request)
     console.log(ctx.request.url)
     console.log(ctx.url)
@@ -58,4 +56,4 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 
-app.listen(3007)
+app.listen(3006)
