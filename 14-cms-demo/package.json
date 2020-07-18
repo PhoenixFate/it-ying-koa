@@ -17,6 +17,7 @@
     "koa-session": "^6.0.0",
     "koa-static": "^5.0.0",
     "md5": "^2.2.1",
-    "mongodb": "^3.5.9"
+    "mongodb": "^3.5.9",
+    "svg-captcha": "^1.4.0"
   }
 }

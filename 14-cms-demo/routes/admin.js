@@ -7,7 +7,7 @@ router.use(async (ctx,next)=>{
     ctx.state.ROOT="http://"+ctx.request.header.host
     // 所有的路由都会经过中间件
     //在此处判断是否登录
-    if(ctx.session.userinfo || ctx.url=="/admin/login" || ctx.url=="/admin/login/doLogin"){
+    if(ctx.session.userinfo || ctx.url.startsWith("/admin/login")){
         await next()
     }else {
         //跳转到登录页面

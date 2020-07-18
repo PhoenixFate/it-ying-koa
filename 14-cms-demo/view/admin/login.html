@@ -32,7 +32,30 @@
 				margin-top:0px;
 				padding-bottom: 12px;
 			}
+			#imageCode {
+				width: 80px;
+				height: 34px;
+			}
 		</style>
+		<script src='{{HOST}}/admin/js/jquery-2.0.3.min.js'></script>
+		<script>
+			$(function(){
+				$("#imageCode").click(function(){
+					$(this).attr("src","{{HOST}}/admin/login/code?t="+Math.random(1000))
+				})
+
+				$("#loginForm").submit(function(){
+					if($("#username").val()==""||$("#password").val()==""||$("#checkCode").val()==""){
+						alert("用户名或者密码或者验证码为空")
+						return false
+					}
+					return true
+				})
+			})
+		</script>
+
+
+
 	</head>
 	<body class="login-layout">
 		<div class="main-container">
@@ -48,7 +71,7 @@
 												CMS内容管理系统
 											</h2>
 											<div class="space-6"></div>
-											<form action="{{HOST}}/admin/login/doLogin" method="POST">
+											<form id="loginForm" action="{{HOST}}/admin/login/doLogin" method="POST">
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -65,7 +88,7 @@
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="password" class="form-control" placeholder="验证吗" style="width:200px;float:left;" name="checkCode" id="checkCode"/>
-															<img style="float:right;" src="https://www.itying.com/koa/admin_express.php?m=Public&a=verify&rand=1521453067" alt="">
+															<img id="imageCode" style="float:right;" src="{{HOST}}/admin/login/code" alt="">
 														</span>
 													</label>
 													<div class="space"></div>

@@ -104,3 +104,12 @@ app.use(views('views',{map:{html:'ejs'}}))
 
 4. 启动项目
 -  npm start
+
+
+## 验证码svg-captcha
+```
+var svgCaptcha = require('svg-captcha');
+var captcha = svgCaptcha.create();
+console.log(captcha);
+// {data: '<svg.../svg>', text: 'abcd'}
+```
