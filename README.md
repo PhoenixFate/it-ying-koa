@@ -113,3 +113,6 @@ var captcha = svgCaptcha.create();
 console.log(captcha);
 // {data: '<svg.../svg>', text: 'abcd'}
 ```
+
+## koa-jsonp
+- koa接口返回json数据 需要使用该模块

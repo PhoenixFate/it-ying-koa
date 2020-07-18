@@ -4,6 +4,9 @@ const render=require("koa-art-template")
 const path=require("path")
 const static=require("koa-static")
 const session = require('koa-session')
+const sd=require("silly-datetime")
+const jsonp = require('koa-jsonp')
+
 var bodyParser=require('koa-bodyparser')
 /*
     Koa 中 koa-bodyparser 中间件获取表单提交的数据
@@ -14,6 +17,7 @@ var bodyParser=require('koa-bodyparser')
 **/
 var app=new Koa();
 app.use(bodyParser())
+app.use(jsonp())
 //session的签名
 app.keys = ['some secret hurr'];
 const CONFIG = {
@@ -68,22 +72,19 @@ router.use('/admin',admin)
 router.use('/api',api)
 router.use(front)
 
-
-
 //配置模板引擎
 render(app,{
     root:path.join(__dirname,"view"),
     extname:".html",
-    debug:process.env.NODE_ENV!=='production'
+    debug:process.env.NODE_ENV!=='production',
+    // 自定义格式化日期
+    dateFormat:dateFormat=function(date){
+        return sd.format(date,"YYYY-MM-DD HH:mm:ss")
+    }
 })
-
 //启动路由
 app.use(router.routes())
 app.use(router.allowedMethods())
-
-
-
-
 
 // 启动项目 node app.js
 app.listen(3521)

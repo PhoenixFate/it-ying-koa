@@ -26,27 +26,27 @@
     </div><!-- #sidebar-shortcuts -->
 
     <ul class="nav nav-list">
-        <li class="active">
-            <a href="index.html">
+        <li {{if !G.url[1]}} class="active" {{/if}}>
+            <a href="{{HOST}}/admin">
                 <i class="icon-dashboard"></i>
                 <span class="menu-text"> 控制台 </span>
             </a>
         </li>
-        <li>
+        <li {{if G.url[1]=="manager"}} class="active open" {{/if}}>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-user-md"></i>
                 <span class="menu-text"> 管理员管理 </span>
                 <b class="arrow icon-angle-down"></b>
             </a>
             <ul class="submenu">
-                <li>
-                    <a href="{{ROOT}}/admin/user">
+                <li {{if !G.url[2]}} class="active" {{/if}}>
+                    <a href="{{HOST}}/admin/manager">
                         <i class="icon-double-angle-right"></i>
                         管理员列表
                     </a>
                 </li>
-                <li>
-                    <a href="{{ROOT}}/admin/user/add">
+                <li {{if G.url[2]=="add"}} class="active" {{/if}}>
+                    <a href="{{HOST}}/admin/manager/add">
                         <i class="icon-double-angle-right"></i>
                         增加管理员
                     </a>
