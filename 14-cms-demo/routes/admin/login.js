@@ -12,7 +12,7 @@ router.get("/",async (ctx)=>{
 router.post("/doLogin",async (ctx)=>{
     console.log(ctx.request.body)
     if(ctx.request.body.checkCode.toUpperCase()==ctx.session.checkCode.toUpperCase()){
-        let result=await db.find("user",{"username":ctx.request.body.username,"password":ctx.request.body.password})
+        let result=await db.find("user",{"username":ctx.request.body.username,"password":tools.md5(ctx.request.body.password)})
         console.log(result)
         if(result.length>0){
             console.log(result[0])

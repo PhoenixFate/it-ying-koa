@@ -44,17 +44,18 @@
 				<div class="page-content">
 					<div class="page-header">
 						<h1>
-							增加管理员
+							修改管理员
 						</h1>
 					</div><!-- /.page-header -->
 					<!--表格-->
 					<div class="table-responsive">
-						<form action="{{HOST}}/admin/manager/doAdd" method="post" class="form-horizontal"
+						<form action="{{HOST}}/admin/manager/doEdit" method="post" class="form-horizontal"
 							role="form">
+							<input type="text" id="id" name="id" value="{{@manager._id}}">
 							<div class="form-group">
 								<label class="col-sm-2 control-label no-padding-right" for="username">用户名:</label>
 								<div class="col-sm-10">
-									<input type="text" id="username" name="username" class="col-xs-10 col-sm-5" />
+									<input type="text" id="username" name="username" readonly value="{{manager.username}}" class="col-xs-10 col-sm-5" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -72,19 +73,15 @@
 							<div class="form-group">
 								<label class="col-sm-2 control-label no-padding-right" for="phone">手机号码:</label>
 								<div class="col-sm-10">
-									<input type="password" id="phone" name="phone" class="col-xs-10 col-sm-5" />
+									<input type="text" id="phone" name="phone" class="col-xs-10 col-sm-5" value="{{manager.phone}}" />
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label no-padding-right" for="address">地址:</label>
 								<div class="col-sm-10">
-									<textarea type="password" id="address" name="address" class="col-xs-10 col-sm-5" >
-										
-									</textarea>
-
+									<textarea type="text" id="address" name="address" class="col-xs-10 col-sm-5" >{{manager.address}}</textarea>
 								</div>
 							</div>
-
 							<div class="form-group">
 								<label class="col-sm-2 control-label no-padding-right" for="rpassword"></label>
 								<div class="col-sm-10">

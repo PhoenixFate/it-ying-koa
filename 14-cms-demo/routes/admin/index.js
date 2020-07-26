@@ -24,8 +24,8 @@ router.get("/changeStatus",async (ctx)=>{
         [attr]:data
     }
     let updateResult=await db.update(collectionName,{"_id":db.getObjectId(id)},json)
-    console.log(updateResult)
-    if(updateResult){
+    console.log(updateResult.result)
+    if(updateResult.result.ok){
         ctx.body={"message":'更新成功',"success":true}
     }else {
         ctx.body={"message":'更新失败',"success":false}

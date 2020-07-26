@@ -75,7 +75,7 @@
 										<th class="center">地址</th>
 										<th class="center">上次登录时间</th>
 										<th class="center">状态</th>
-										<th width="80px;" class="center">操作</th>
+										<th width="100px;" class="center">操作</th>
 									</tr>
 								</thead>
 
@@ -103,29 +103,31 @@
 										<td>{{$value.lastLogin|dateFormat}}</td>
 										<td class="hidden-480">
 											{{if $value.state==1}}
-												<img src="{{HOST}}/admin/images/yes.gif" onclick="app.toggle(this,'user','state',0,'{{@$value._id}}')" />
+												<img src="{{HOST}}/admin/images/yes.gif" onclick="app.toggle(this,'user','status',0,'{{@$value._id}}')" />
 											{{else}}
-												<img src="{{HOST}}/admin/images/no.gif" onclick="app.toggle(this,'user','state',1,'{{@$value._id}}')" />
+												<img src="{{HOST}}/admin/images/no.gif" onclick="app.toggle(this,'user','status',1,'{{@$value._id}}')" />
 											{{/if}}
 										</td>
 										<td>
 											<div class="visible-md visible-lg hidden-sm hidden-xs btn-group center">
-												<button class="btn btn-xs btn-info">
-													<i class="icon-edit bigger-120"></i>
-												</button>
-												&nbsp;
-												<button class="btn btn-xs btn-danger">
-													<i class="icon-trash bigger-120"></i>
-												</button>
+												<!-- 编辑按钮 -->
+												<a href="{{HOST}}/admin/manager/edit?id={{@$value._id}}">
+													<button class="btn btn-xs btn-info">
+														<i class="icon-edit bigger-120"></i>
+													</button>
+												</a>
+												<a  class="delete" href="{{HOST}}/admin/manager/delete?id={{@$value._id}}">
+													<button class="btn btn-xs btn-danger">
+														<i class="icon-trash bigger-120"></i>
+													</button>
+												</a>
 											</div>
 										</td>
 									</tr>
 									{{/each}}
-									
 								</tbody>
 							</table>
 						</div>
-
 					</div>
 				</div><!-- /.main-content -->
 			</div><!-- /.main-container-inner -->

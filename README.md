@@ -116,3 +116,10 @@ console.log(captcha);
 
 ## koa-jsonp
 - koa接口返回json数据 需要使用该模块
+
+
+## mongodb 导入导出
+- 导出
+mongodump -h dbhost -d dbname -o dbdirectory
+- 导入
+mongorestore -h dbhost -d dbname path 
