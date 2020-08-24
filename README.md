@@ -123,3 +123,31 @@ console.log(captcha);
 mongodump -h dbhost -d dbname -o dbdirectory
 - 导入
 mongorestore -h dbhost -d dbname path 
+
+
+## jquery分页插件jqPaginator.js
+- html
+```
+<div id="page" class="pagination"></div>
+```
+- js
+```
+$('#page').jqPaginator({
+    totalPages: {{totalPages}},
+    visiblePages: 8,
+    currentPage: {{ page }},
+    onPageChange: function (num, type) {
+        console.log(num, type);
+        //
+        if (type == 'change') {
+            location.href = "{{HOST}}/admin/article/index?page=" + num;
+        }
+    }
+});
+```
+
+## 图片上传模块
+- cnpm install koa-multer --save
+
+## 富文本编辑器
+- cnpm install koa2-ueditor --save

@@ -31,11 +31,14 @@ const index=require("./admin/index")
 const user=require("./admin/user")
 const manager=require("./admin/manager")
 const category=require("./admin/category")
+const article=require("./admin/article")
 
 router.use(index)
 router.use('/login',login)
 router.use('/user',user)
 router.use("/manager",manager)
 router.use("/category",category)
+router.use("/article",article)
+
 
 module.exports=router.routes()
